@@ -11,18 +11,20 @@ import java.util.WeakHashMap;
 public class Configurator {
 
     private static final WeakHashMap<String,Object> LATTE_CONFIG=new WeakHashMap<>();
-    private Configurator(){
-        LATTE_CONFIG.put(ConfigType.CONFIG_READY.name(),false);//配置已经开始，但是尚未完成
-    }
+
     public static Configurator getInstance(){
         return Holder.INSTANCE;
-    }
-    final WeakHashMap<String,Object> getLatteConfig(){
-        return  LATTE_CONFIG;
     }
     //静态内部类写单例
     private static class Holder{
         private static  final Configurator INSTANCE=new Configurator();
+    }
+    private Configurator(){
+        LATTE_CONFIG.put(ConfigType.CONFIG_READY.name(),false);//配置已经开始，但是尚未完成
+    }
+
+    final WeakHashMap<String,Object> getLatteConfig(){
+        return  LATTE_CONFIG;
     }
     //配置完成
     public final void configure(){
