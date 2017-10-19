@@ -19,6 +19,7 @@ public abstract class ProxyActivity extends SupportActivity{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initContainer(savedInstanceState);
     }
     //初始化视图
     private void initContainer(@Nullable Bundle savedInstanceState){
